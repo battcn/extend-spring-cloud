@@ -7,10 +7,10 @@
 
 ## 已实现模块
 
-- **Hystrix： 解决 `Hystrix` 在Thread策略下 `ThreadLocal` 传递请求头的问题**
+- **Hystrix： 解决 `Hystrix` 在Thread策略下 `ThreadLocal` 传递请求头的问题（代码来自周立大神提交到Spring Cloud ISSUE）由于该功能有不少应用场景，官方未接收 PULL 所以我将它移植过来稍作修改打成了 starter 包**
 - **Gateway： 增加了黑白名单过滤器**
 
-
+## 用法
 
 ```xml
 <dependency>
@@ -20,14 +20,12 @@
 </dependency>
 ```
 
-
 **动态控制：可以通过 `enabled` 动态控制，如果依赖了模块，默认开启使用**
+
 ``` properties
 extend.模块.enabled=false
 ```
 
-
-## 用法
 
 已添加了演示案例，用的 `nacos` 如果本地没有那么运行不起来，当然可以直接依赖对应的包 copy 配置即可
 
