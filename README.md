@@ -16,7 +16,7 @@
 <dependency>
     <groupId>com.battcn.cloud</groupId>
     <artifactId>extend-具体的模块-spring-cloud-starter</artifactId>
-    <version>${extend-spring-boot.version}</version>
+    <version>${extend-spring-cloud.version}</version>
 </dependency>
 ```
 
