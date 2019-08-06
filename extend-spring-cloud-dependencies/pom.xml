@@ -6,7 +6,7 @@
     <groupId>com.battcn.cloud</groupId>
     <artifactId>extend-spring-cloud-dependencies</artifactId>
     <name>extend-spring-cloud-dependencies</name>
-    <version>1.0.1-RELEASE</version>
+    <version>1.0.2-RELEASE</version>
     <packaging>pom</packaging>
     <description>扩展包的依赖项</description>
     <url>https://github.com/battcn/extend-spring-cloud-starter.git</url>
@@ -60,7 +60,7 @@
         <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
         <gmavenplus-plugin.version>1.6</gmavenplus-plugin.version>
 
-        <extend-spring-cloud.version>1.0.1-RELEASE</extend-spring-cloud.version>
+        <extend-spring-cloud.version>1.0.2-RELEASE</extend-spring-cloud.version>
 
     </properties>
 

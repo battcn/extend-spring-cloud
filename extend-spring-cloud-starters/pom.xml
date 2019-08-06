@@ -6,12 +6,12 @@
     <parent>
         <groupId>com.battcn.cloud</groupId>
         <artifactId>extend-spring-cloud-dependencies</artifactId>
-        <version>1.0.1-RELEASE</version>
+        <version>1.0.2-RELEASE</version>
         <relativePath>../extend-spring-cloud-dependencies/pom.xml</relativePath>
     </parent>
     <groupId>com.battcn.cloud</groupId>
     <artifactId>extend-spring-cloud-starters</artifactId>
-    <version>1.0.1-RELEASE</version>
+    <version>1.0.2-RELEASE</version>
     <name>extend-spring-cloud-starters</name>
     <packaging>pom</packaging>
 
@@ -19,9 +19,9 @@
         <!--    cloud   -->
         <module>extend-spring-cloud-starter</module>
         <!--    Feign Hystrix ThreadLocal 传递请求头  -->
-        <module>extend-hystrix-spring-boot-starter</module>
+        <module>extend-hystrix-spring-cloud-starter</module>
         <!--    黑白名单过滤器     -->
-        <module>extend-gateway-spring-boot-starter</module>
+        <module>extend-gateway-spring-cloud-starter</module>
     </modules>
 
 
