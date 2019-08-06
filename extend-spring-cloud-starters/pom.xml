@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.battcn.cloud</groupId>
+        <artifactId>extend-spring-cloud-dependencies</artifactId>
+        <version>1.0.1-RELEASE</version>
+        <relativePath>../extend-spring-cloud-dependencies/pom.xml</relativePath>
+    </parent>
+    <groupId>com.battcn.cloud</groupId>
+    <artifactId>extend-spring-cloud-starters</artifactId>
+    <version>1.0.1-RELEASE</version>
+    <name>extend-spring-cloud-starters</name>
+    <packaging>pom</packaging>
+
+    <modules>
+        <!--    cloud   -->
+        <module>extend-spring-cloud-starter</module>
+        <!--    Feign Hystrix ThreadLocal 传递请求头  -->
+        <module>extend-hystrix-spring-boot-starter</module>
+        <!--    黑白名单过滤器     -->
+        <module>extend-gateway-spring-boot-starter</module>
+    </modules>
+
+
+    <build>
+        <plugins>
+            <!-- 资源文件拷贝插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- java编译插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <inherited>true</inherited>
+                <configuration>
+                    <forkCount>1</forkCount>
+                    <reuseForks>false</reuseForks>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

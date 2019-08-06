@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.battcn.cloud</groupId>
+        <artifactId>extend-spring-cloud-starters</artifactId>
+        <version>1.0.1-RELEASE</version>
+    </parent>
+    <groupId>com.battcn.cloud</groupId>
+    <artifactId>extend-spring-cloud-starter</artifactId>
+    <name>extend-spring-cloud-starter</name>
+    <version>${extend-spring-cloud.version}</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <extend-spring-cloud.version>1.0.1-RELEASE</extend-spring-cloud.version>
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.battcn.cloud</groupId>
+            <artifactId>extend-spring-cloud-autoconfigure</artifactId>
+            <version>${extend-spring-cloud.version}</version>
+        </dependency>
+    </dependencies>
+
+
+</project>
