@@ -7,25 +7,15 @@
 
 ## 已实现模块
 
-- **cors： Spring Boot 的跨域处理**
-- **crypto： 加解密处理**
-- **i18m： 国际化支持**
-- **mybatis： 集成 tk.mapper 与 pagehelper 同时封装了全局赋值插件**
-- **oss： 云存储（七牛/阿里/腾讯/MINIO）**
-- **redis： 增强 Redis，包含分布式锁和分布式限流**
-- **sensitive： 关键字脱敏处理**
-- **time： JDK8日期全局格式化**
-- **wrapper： 包装 request.body，支持重复读取request.getInputStream();**
-- **xss： 接口防XSS攻击**
-- **xxl-job： XXL-JOB 的自动装配**
-
+- **Hystrix： 解决 `Hystrix` 在Thread策略下 `ThreadLocal` 传递请求头的问题**
+- **Gateway： 增加了黑白名单过滤器**
 
 
 
 ```xml
 <dependency>
-    <groupId>com.battcn.boot</groupId>
-    <artifactId>extend-具体的模块-spring-boot-starter</artifactId>
+    <groupId>com.battcn.cloud</groupId>
+    <artifactId>extend-具体的模块-spring-cloud-starter</artifactId>
     <version>${extend-spring-boot.version}</version>
 </dependency>
 ```
@@ -34,8 +24,3 @@
 ``` properties
 extend.模块.enabled=false
 ```
-
-## 遗留问题
-
-- **目前只实现了 `minio` 存储的路径返回，其它三种存储暂时未扩展返回内容（主要没有腾讯云和七牛云存储的测试账号/欢迎朋友提供【提供的账号不会出现在发布的代码中】）**
-- **`crypto(加密)` 与 `sensitive(脱敏)` 一起使用会存在冲突（单独使用不会有问题）**
