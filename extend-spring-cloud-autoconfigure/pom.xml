@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.battcn.cloud</groupId>
         <artifactId>extend-spring-cloud-dependencies</artifactId>
-        <version>1.0.2-RELEASE</version>
+        <version>1.0.3-RELEASE</version>
         <relativePath>../extend-spring-cloud-dependencies/pom.xml</relativePath>
     </parent>
     <groupId>com.battcn.cloud</groupId>
@@ -32,6 +32,7 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

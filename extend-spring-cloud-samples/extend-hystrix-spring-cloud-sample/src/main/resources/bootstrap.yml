@@ -1,0 +1,39 @@
+server:
+  port: 7002
+logging:
+  level:
+    com.battcn: debug
+    com.alibaba.nacos.client.naming: warn
+  file: ./logs/${spring.application.name}.log
+spring:
+  application:
+    name: extend-hystrix-spring-cloud-sample
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.13:7777
+
+# 开启/关闭配置
+extend:
+  hystrix:
+    propagate:
+      request-attribute:
+        enabled: true
+
+hystrix:
+  command:
+    default:
+      circuitBreaker:
+        sleepWindowInMilliseconds: 100000
+        forceClosed: true
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 600000
+  shareSecurityContext: true
+
+#请求处理的超时时间
+ribbon:
+  ReadTimeout: 100000
+  ConnectTimeout: 100000

@@ -4,12 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.battcn.cloud</groupId>
-    <artifactId>extend-spring-cloud-dependencies</artifactId>
-    <name>extend-spring-cloud-dependencies</name>
+    <artifactId>extend-spring-cloud-samples</artifactId>
     <version>1.0.3-RELEASE</version>
     <packaging>pom</packaging>
-    <description>扩展包的依赖项</description>
+    <name>extend-spring-cloud-samples</name>
     <url>https://github.com/battcn/extend-spring-cloud-starter.git</url>
+
+    <modules>
+        <module>extend-gateway-spring-cloud-sample</module>
+        <module>extend-hystrix-spring-cloud-sample</module>
+    </modules>
 
     <organization>
         <name>battcn开源组</name>
@@ -31,7 +35,6 @@
         <developerConnection>https://github.com/battcn/extend-spring-cloud.git</developerConnection>
     </scm>
 
-
     <developers>
         <developer>
             <name>唐亚峰 - battcn</name>
@@ -42,7 +45,6 @@
             </roles>
         </developer>
     </developers>
-
 
     <properties>
         <java.version>1.8</java.version>
@@ -59,9 +61,8 @@
         <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
         <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
         <gmavenplus-plugin.version>1.6</gmavenplus-plugin.version>
-
         <extend-spring-cloud.version>1.0.3-RELEASE</extend-spring-cloud.version>
-
+        <nacos-spring-cloud.version>0.9.0.RELEASE</nacos-spring-cloud.version>
     </properties>
 
 
@@ -84,111 +85,6 @@
         </dependencies>
     </dependencyManagement>
 
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>oss</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        </snapshotRepository>
-        <repository>
-            <id>oss</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
-
-
-    <profiles>
-        <profile>
-            <id>oss</id>
-            <build>
-                <plugins>
-                    <!-- 资源文件拷贝插件 -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-resources-plugin</artifactId>
-                        <configuration>
-                            <encoding>UTF-8</encoding>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <!-- java编译插件 -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <configuration>
-                            <source>${java.version}</source>
-                            <target>${java.version}</target>
-                            <encoding>${project.build.sourceEncoding}</encoding>
-                        </configuration>
-                    </plugin>
-                    <!-- Source -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>${maven-source-plugin.version}</version>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>jar-no-fork</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <!-- Javadoc -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <!-- GPG -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>${maven-gpg-plugin.version}</version>
-                        <executions>
-                            <execution>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-
-            <distributionManagement>
-                <snapshotRepository>
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-                </snapshotRepository>
-                <repository>
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-            </distributionManagement>
-        </profile>
-
-    </profiles>
 
     <build>
         <plugins>

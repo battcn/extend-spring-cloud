@@ -1,0 +1,62 @@
+server:
+  port: 7001
+logging:
+  level:
+    com.battcn: debug
+    com.alibaba.nacos.client.naming: warn
+  file: ./logs/${spring.application.name}.log
+spring:
+  application:
+    name: extend-gateway-spring-cloud-sample
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.13:7777
+    gateway:
+      discovery:
+        locator:
+          # 配置成 true 那么 Path 就应该是 supply-chain-printing or supply-chain-gateway 即是设置可以路由到其他服务
+          # 如果觉得 install-id 比较长看起来不舒服，可以用 StripPrefix 清洗的方式而不是 locator.enabled = true
+          enabled: false
+      routes:
+        - id: extend-hystrix-spring-cloud-sample
+          uri: lb://extend-hystrix-spring-cloud-sample
+          predicates:
+            - Path=/extend-hystrix/**
+          filters:
+            # 切割路径
+            - StripPrefix=1
+            # 添加黑白名单过滤
+            - name: BlackWhiteList
+              args:
+                max-trusted-index: 1
+                black-lists: 192.168.1.13,0:0:0:0:0:0:0:1,127.0.0.1
+                #white-lists: 192.168.1.14
+extend:
+  gateway:
+    filter:
+      black-white-list:
+        # 首先要开启黑白名单过滤器（当然默认值是 true ）
+        enabled: true
+
+
+hystrix:
+  command:
+    default:
+      circuitBreaker:
+        sleepWindowInMilliseconds: 100000
+        forceClosed: true
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 600000
+  shareSecurityContext: true
+  propagate:
+    request-attribute:
+      enabled: true
+
+#请求处理的超时时间
+ribbon:
+  ReadTimeout: 100000
+  ConnectTimeout: 100000

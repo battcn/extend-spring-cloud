@@ -16,9 +16,9 @@ import static com.battcn.cloud.extend.configuration.ExtendCloudBeanTemplate.GATE
 public class BlackWhiteListProperties {
 
     /**
-     * 启用hystrix传播HTTP请求和响应。默认为false。
+     * 启用hystrix传播HTTP请求和响应。默认为 true。
      */
-    private boolean enabled = false;
+    private boolean enabled = true;
     private String filterName = "BlackWhiteList";
     private Map<String,Object> result;
 }
